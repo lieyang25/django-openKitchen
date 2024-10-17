@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% extends 'myKitchen/base.html' %}
+  {% block content %}
+    <P>Pizza:{{pizza.name}}</P>
+
+    <p>Entry:</p>
+    <ul>
+      {% for entry in entries %}
+        <li>
+            <P>{{entry.date_added|date:'M d, Y H:i'}}</P>
+            <p>{{entry.text|linebreaks}}</p>
+        </li>
+      {% empty %}
+        <li>There no entries for this pizza yet.</li>
+      {% endfor %}
+    </ul>
+  {% endblock content %}
+</body>
+</html>
